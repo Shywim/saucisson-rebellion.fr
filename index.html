@@ -96,6 +96,14 @@
         </div>
       </div>
     </aside>
+
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> 
+    <script>
+      const twitterLink = document.getElementsByClassName('twitter')[0]
+      twitterLink.addEventListener('click', function() {
+        window.plausible('twitter')
+      })
+    </script>
   </div>
 </body>
 </html>
