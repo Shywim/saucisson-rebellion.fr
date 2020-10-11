@@ -115,10 +115,11 @@ a:visited {
 }
 
 @media(max-width: 600px) {
+  main .item {
+    height: initial;
+  }
+  
   main .item img {
-    min-width: initial;
-    min-height: 100%;
-    max-height: initial;
-    max-width: 100%;
+    width: 100%;
   }
 }
