@@ -100,8 +100,14 @@
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> 
     <script>
       const twitterLink = document.getElementsByClassName('twitter')[0]
-      twitterLink.addEventListener('click', function() {
-        window.plausible('twitter')
+      twitterLink.addEventListener('click', function(e) {
+        if (!window.plausible) {
+          return
+        }
+        e.preventDefault()
+        window.plausible('twitter', {callback: function() {
+          window.location.href = e.target.href
+        }})
       })
     </script>
   </div>
