@@ -115,12 +115,12 @@
             window.plausible(eventName, {callback: goToLinkCallback(e.target.href)})
           }
         }
-        
+
         const twitterLink = document.getElementsByClassName('twitter')[0]
         twitterLink.addEventListener('click', eventHandling('twitter'))
         const items = document.querySelectorAll('.item')
         for (const item of items) {
-          item.addEventListener('click', eventHandling('saucissed'))
+          item.firstChild.addEventListener('click', eventHandling('saucissed'))
         }
       })();
     </script>
