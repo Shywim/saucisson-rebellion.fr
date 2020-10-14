@@ -85,7 +85,7 @@
     </main>
 
     <aside>
-      <div class="inner-aside">
+      <div class="inner-aside visible">
         <div class="tagline">
           <h1>Ça vous donne envie ? 🤤</h1>
           <p style="font-size: 1.2em">Et pourtant il n'y a eu besoin d'<strong><u>aucune vie animale</u></strong> pour préparer ces saucissons et autres saucisses. 🐷🌈</p>
@@ -96,6 +96,19 @@
         </div>
       </div>
     </aside>
+
+    <div class="bottom-sheet">
+      <div class="inner-aside">
+        <div class="tagline">
+          <h1>Ça vous donne envie ? 🤤</h1>
+          <p style="font-size: 1.2em">Et pourtant il n'y a eu besoin d'<strong><u>aucune vie animale</u></strong> pour préparer ces saucissons et autres saucisses. 🐷🌈</p>
+          <p>N'hésitez pas à cliquer sur les photos qui vous font envie pour en savoir plus. 🤗</p>
+        </div>
+        <div class="infos">
+          <a href="https://twitter.com/Shywim" class="twitter">🐣 @Shywim</a>
+        </div>
+      </div>
+    </div>
 
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> 
     <script>
@@ -120,8 +133,23 @@
         twitterLink.addEventListener('click', eventHandling('twitter'))
         const items = document.querySelectorAll('.item')
         for (const item of items) {
+          if (!item.firstChild) {
+            break
+          }
           item.firstChild.addEventListener('click', eventHandling('saucissed'))
         }
+
+        const fixedInnerAside = document.querySelector('aside .inner-aside')
+        const bottomSheet = document.getElementsByClassName('bottom-sheet')[0]
+        window.addEventListener('scroll', function (e) {
+            if (window.scrollY > 800) {
+              bottomSheet.classList.add('visible')
+              fixedInnerAside.classList.remove('visible')
+            } else {
+              bottomSheet.classList.remove('visible')
+              fixedInnerAside.classList.add('visible')
+            }
+        }, {passive: true})
       })();
     </script>
   </div>

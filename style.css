@@ -88,6 +88,10 @@ a:visited {
   color: #1DA1F2;
 }
 
+.bottom-sheet {
+  display: none;
+}
+
 @media(max-width: 920px) {
   .container {
     flex-direction: column;
@@ -111,6 +115,34 @@ a:visited {
     position: initial;
     height: auto;
     padding: 20px;
+  }
+
+  aside .inner-aside {
+    visibility: hidden;
+  }
+
+  aside .inner-aside.visible {
+    visibility: visible;
+  }
+
+  .bottom-sheet {
+    display: initial;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    background: #fff;
+    transition: 0.3s ease-in;
+    transition-property: transform, background;
+  }
+
+  .bottom-sheet.visible {
+    transform: translateY(0);
+  }
+  
+  .inner-aside h1 {
+    margin-top: 0;
   }
 }
 
